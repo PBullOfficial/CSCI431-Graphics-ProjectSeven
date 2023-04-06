@@ -3,7 +3,7 @@
 var canvas;
 var gl;
 
-var numPositions  = 36;
+var numPositions  = 12;
 
 var texSize = 256;
 var numChecks = 8;
@@ -57,15 +57,11 @@ var texCoord = [
 ];
 
 var vertices = [
-    vec4(-0.5, -0.5, 0.5, 1.0),
-    vec4(-0.5, 0.5, 0.5, 1.0),
-    vec4(0.5, 0.5, 0.5, 1.0),
-    vec4(0.5, -0.5, 0.5, 1.0),
-    vec4(-0.5, -0.5, -0.5, 1.0),
-    vec4(-0.5, 0.5, -0.5, 1.0),
-    vec4(0.5, 0.5, -0.5, 1.0),
-    vec4(0.5, -0.5, -0.5, 1.0)
-];
+    vec4( 0.5, -0.2722, 0.2886, 1.0),
+    vec4( 0.0, -0.2722, -0.5773, 1.0),
+    vec4( -0.5, -0.2722, 0.28861, 1.0),
+    vec4( 0.0, 0.5443, 0.0, 1.0),
+     ];
 
 var vertexColors = [
     vec4(0.0, 0.0, 0.0, 1.0),  // black
@@ -105,7 +101,7 @@ function configureTexture() {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
 }
 
-function quad(a, b, c, d) {
+function quad(a, b, c) {
      positionsArray.push(vertices[a]);
      colorsArray.push(vertexColors[a]);
      texCoordsArray.push(texCoord[0]);
@@ -117,28 +113,14 @@ function quad(a, b, c, d) {
      positionsArray.push(vertices[c]);
      colorsArray.push(vertexColors[a]);
      texCoordsArray.push(texCoord[2]);
-
-     positionsArray.push(vertices[a]);
-     colorsArray.push(vertexColors[a]);
-     texCoordsArray.push(texCoord[0]);
-
-     positionsArray.push(vertices[c]);
-     colorsArray.push(vertexColors[a]);
-     texCoordsArray.push(texCoord[2]);
-
-     positionsArray.push(vertices[d]);
-     colorsArray.push(vertexColors[a]);
-     texCoordsArray.push(texCoord[3]);
 }
 
 function colorCube()
 {
-    quad(1, 0, 3, 2);
-    quad(2, 3, 7, 6);
-    quad(3, 0, 4, 7);
-    quad(6, 5, 1, 2);
-    quad(4, 5, 6, 7);
-    quad(5, 4, 0, 1);
+   quad(2, 1, 0);
+   quad(0, 1, 3);
+   quad(3, 2, 0);
+   quad(1, 3, 2);
 }
 
 
