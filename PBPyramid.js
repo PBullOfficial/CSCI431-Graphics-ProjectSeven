@@ -113,6 +113,8 @@ function quad(a, b, c) {
      positionsArray.push(vertices[c]);
      colorsArray.push(vertexColors[a]);
      texCoordsArray.push(texCoord[2]);
+
+
 }
 
 function colorCube()
